@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Dojodachi.Models;
 using Microsoft.AspNetCore.Http;
-
+using Microsoft.AspNetCore.Identity;
 
 namespace Dojodachi.Controllers
 {
@@ -88,7 +83,6 @@ namespace Dojodachi.Controllers
                 HttpContext.Session.SetString("Image2", "yummygrapes.gif");
                 HttpContext.Session.SetString("Image3", "pomegranateEatingRaccoon.gif");
                 
-
                 return RedirectToAction ("Index");
             }
             else
@@ -127,6 +121,7 @@ namespace Dojodachi.Controllers
         // ==================================
         //     Work Route
         // ==================================
+
         [HttpPost("Work")]
         public IActionResult Work()
         {
@@ -173,7 +168,6 @@ namespace Dojodachi.Controllers
                 HttpContext.Session.SetString("Image4","waterRaccoon.gif");
                 // ViewBag.Energy = HttpContext.Session.GetInt32("Energy");
                 // ViewBag.Happiness = HttpContext.Session.GetInt32("Happiness");
-
                 return RedirectToAction("Index");
             }
             else
@@ -181,6 +175,10 @@ namespace Dojodachi.Controllers
                 return View ("Index");
         }
         
+        // ==================================
+        //     Restart Route
+        // ==================================
+
         [HttpPost("Restart")]
         
         public IActionResult Restart() 
@@ -188,7 +186,6 @@ namespace Dojodachi.Controllers
                 HttpContext.Session.Clear();
                 HttpContext.Session.SetString("Image","raccoon.gif");
                 return RedirectToAction("Index");
-            }   
-        
+            }    
     }
 }

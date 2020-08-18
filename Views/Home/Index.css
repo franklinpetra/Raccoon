@@ -44,7 +44,9 @@ a.navbar-brand {
   body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
+    background-color:#e9ecef;
   }
+
   .footer {
     position: absolute;
     bottom: 0;
@@ -73,7 +75,7 @@ a.navbar-brand {
   .button-wobble2 {
     border-radius: 650px 850px 150px 650px /
                    350px 150px 950px 350px;
-    animation: wobble 1s ease-in-out alternate infinite;
+    animation: wobble 6s ease-in-out alternate infinite;
   }
   
   @keyframes wobble {

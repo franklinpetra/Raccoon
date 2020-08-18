@@ -88,3 +88,7 @@
 /Users/petrafranklin/Coding_DoJo/c_sharp/Assignments/RaccoonDachi/obj/Debug/netcoreapp2.2/Dojodachi.dll
 /Users/petrafranklin/Coding_DoJo/c_sharp/Assignments/RaccoonDachi/obj/Debug/netcoreapp2.2/Dojodachi.pdb
 /Users/petrafranklin/Coding_DoJo/c_sharp/Assignments/RaccoonDachi/obj/Debug/netcoreapp2.2/Dojodachi.csproj.CopyComplete
+/Users/petrafranklin/Coding_DoJo/c_sharp/Assignments/RaccoonDachi/obj/Debug/netcoreapp2.2/Razor/Views/Home/Cat.g.cshtml.cs
+/Users/petrafranklin/Coding_DoJo/c_sharp/Assignments/RaccoonDachi/obj/Debug/netcoreapp2.2/Razor/Views/Home/Pup.g.cshtml.cs
+/Users/petrafranklin/Coding_DoJo/c_sharp/Assignments/RaccoonDachi/obj/Debug/netcoreapp2.2/Razor/Views/Home/TimeDisplay.g.cshtml.cs
+/Users/petrafranklin/Coding_DoJo/c_sharp/Assignments/RaccoonDachi/obj/Debug/netcoreapp2.2/Razor/Views/Home/TimeTravel.g.cshtml.cs

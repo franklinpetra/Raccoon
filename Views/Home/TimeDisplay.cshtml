@@ -1,0 +1,87 @@
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Display</title>
+    
+</head>
+<body>
+    <br><br><br><br>
+
+        <div class="jumbotron">
+            <h1 class="display-4" style="text-align:center">Welcome to Time Display!</h1><br>
+
+            <div class="mx-auto" style="width:645px;">
+                <div class="card" style="width:40rem; text-align:center; height:450px">
+                    <div class="card-body"><br><br>
+                        <p>The current date and time:</p>
+                        <h3 class="text-center" style="color: orange">@ViewBag.Date</h3>
+                        <h3 class="text-center" style="color: orange">@ViewBag.Time</h3>
+                    </div><br><br><br>
+
+                    <p class="text-center"> If what you really need is to go back in 
+                        time, please <br> step into our squirrelly time machine.</p>
+
+                        <a class="btn btn-primary btn-lg btn-block active" style="text-align:center;" href="/TimeTravel" role="button">Time Travel</a>
+                        <a class="btn btn-primary btn-lg btn-block active" style="text-align:center;" href="https://grover.allenai.org" role="button">Generate Fake News</a>
+                        @* <!-- Button trigger modal --> *@
+                        <button type="button" class="btn btn-primary btn-lg btn-block active" data-toggle="modal" data-target="#staticBackdrop">
+                        Read your fortune
+                        </button>
+
+                        @* <!-- Modal --> *@
+                    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/f_auto,q_auto,w_1100/v1555930181/shape/mentalfloss/5002313ignore_5.jpg" style="width:400px" alt="Fortune Cookie"/>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Understood</button>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>   
+            </div>
+        </div>
+</body>
+
+</html>
+
+
+@* Time:
+// Create a DateTime from date and time  
+DateTime dob = new DateTime(1974, 7, 10, 7, 10, 24);  
+   
+// Create a DateTime from a String  
+string dateString = "7/10/1974 7:10:24 AM";  
+DateTime dateFromString =  
+    DateTime.Parse(dateString, System.Globalization.CultureInfo.InvariantCulture);  
+Console.WriteLine(dateFromString.ToString());  
+   
+// Empty DateTime  
+DateTime emptyDateTime = new DateTime();  
+   
+// Just date  
+DateTime justDate = new DateTime(2002, 10, 18);  
+   
+// DateTime from Ticks  
+DateTime justTime = new DateTime(1000000);  
+   
+// DateTime with localization  
+DateTime dateTimeWithKind = new DateTime(1974, 7, 10, 7, 10, 24, DateTimeKind.Local);  
+   
+// DateTime with date, time and milliseconds  
+DateTime dateTimeWithMilliseconds = new DateTime(2010, 12, 15, 5, 30, 45, 100);  
+    *@
