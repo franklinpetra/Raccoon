@@ -1,0 +1,75 @@
+﻿@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="./Index.css">
+    <title>Dojo Raccoon</title>
+</head>
+<body>
+    <div class="text-center">
+    <h1 class="display-4">Welcome to Dojodashi</h1>
+    @* <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p> *@
+</div>
+    <br>
+        <div class="jumbotron">
+            <h4 class="display-4" style="text-align:center; color:orange"></h4><br>
+                <h3 class="text-center" style="color: orange">  
+                <h3>@ViewBag.FeedFailMessage</h3>
+                <h3>@ViewBag.SleepMessage</h3> 
+                <h3>@ViewBag.WorkMessage</h3> 
+                <h3>@ViewBag.PlayMessage</h3> 
+            </h3><br>
+                <h3 class="text-center" style="color: orange">
+                        Fullness: &nbsp; <span>@ViewBag.Fullness</span>  &nbsp;&nbsp;
+                        Happiness: &nbsp; <span>@ViewBag.Happiness</span> &nbsp;&nbsp;
+                        Meals: &nbsp; <span>@ViewBag.Meals</span> &nbsp;&nbsp;
+                        Energy: &nbsp; <span>@ViewBag.Energy</span> &nbsp;&nbsp;
+                </h3><br>
+                <div class="mx-auto" style="width:645px;">
+                    <div class="card" style="width:40rem;  height:450px">
+                        <div class="card-body" style="background:white;"><br>
+                            <div class="text-center">
+                                <img src="~/img/@ViewBag.Image" style="height:300px" alt="Raccoon"/>
+                            </div>
+                        </div>
+                    </div class="container" style="width:40rem; display:flex; justify-content:space-between">     
+                        <form action="Feed" method="POST" style="margin:30px 0px 0px 130px; display:inline-block">
+                            <button class="btn btn-primary btn-lg button-wobble4"  style=" border:green; background:green; display:inline-block">Feed</button> &nbsp;&nbsp;&nbsp;&nbsp;
+                        </form>
+                        <form action="Play"  method="POST" style="display:inline-block">
+                            <button class="btn btn-primary btn-lg button-wobble3" style="border:orange; background:orange; display:inline-block;">Play</button> &nbsp;&nbsp;&nbsp;&nbsp;
+                        </form>
+                        <form action="Work"  method="POST" style="display:inline-block">
+                            <button class="btn btn-primary btn-lg button-wobble1" style="background:blue ">Work</button> &nbsp;&nbsp;&nbsp;&nbsp;
+                        </form>
+                        <form action="Sleep" method="POST" style="display:inline-block">
+                            <button class="btn btn-primary btn-lg button-wobble2" style="border:purple; background:purple">Sleep</button>  
+                        </form> 
+                            <div style="width: 40rem">
+                                <br>
+                                <h5 class="slideText" style="text-align:center; color:orange; word-wrap: break-word;">@ViewBag.Message</h5>
+
+                            </div>
+
+
+                            @if (@ViewBag.Status != null)
+                            {
+                            <div>
+                                <form action="Restart" method="POST">
+                                    <h3>@ViewBag.EndMessage</h3>
+                                     <h3>@ViewBag.EndImage</h3>
+                                    <button type="button" asp-action="Restart" class="btn btn-primary" style="text-align:center; border:green; background:green;" role="button">Restart</button>
+                                </form>
+                            </div>
+                            }
+                    </div>
+        </div>
+</body>
+</html>
+
