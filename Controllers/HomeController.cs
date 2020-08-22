@@ -72,8 +72,7 @@ namespace Dojodachi.Controllers
 
         [HttpPost("Feed")]
         public IActionResult Feed()
-        {
-            
+        { 
             Random rand = new Random();
             int? FullnessCount = HttpContext.Session.GetInt32("Fullness");
             int NewFullnessCount = FullnessCount ?? default(int);
