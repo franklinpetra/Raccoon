@@ -2,6 +2,13 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Dojodachi.Controllers
 {
@@ -73,21 +80,33 @@ namespace Dojodachi.Controllers
             int? MealsCount = HttpContext.Session.GetInt32("Meals");
             int NewMealsCount = MealsCount ?? default(int);
             int AmountFullness = rand.Next(5,11);
+            int AmountImage = rand.Next(1,3);
 
             if (NewMealsCount > 0)
             {
                 HttpContext.Session.SetInt32("Fullness", NewFullnessCount + AmountFullness);
                 HttpContext.Session.SetInt32("Meals", NewMealsCount -1);
                 HttpContext.Session.SetString("Message", $"Dashi Raccoon has eaten and has gained {AmountFullness}.");
-                HttpContext.Session.SetString("Image", "eating.gif");
-                HttpContext.Session.SetString("Image2", "yummygrapes.gif");
-                HttpContext.Session.SetString("Image3", "pomegranateEatingRaccoon.gif");
+
+                int Image = AmountImage;
+                switch (0 + AmountImage)
+                {
+                case 1:
+                HttpContext.Session.SetString("Image","eating.gif");
+                break;
+                case 2:
+                HttpContext.Session.SetString("Image","yummygrapes.gif");
+                break;
+                case 3:
+                HttpContext.Session.SetString("Image","pomegranateEatingRaccoon.gif");
+                break;
+                }
                 
                 return RedirectToAction ("Index");
             }
             else
             {
-                HttpContext.Session.SetString("Message","Dashi Raccoon does not have enough food to Eat! Perhaps he could work a bit to earn a few meals and try again.");
+                HttpContext.Session.SetString("Message","Dashi Raccoon does not have enough food to Eat! Perhaps he could work a bit to earn a few meals, and then try again.");
                 HttpContext.Session.SetString("Image","hungry.gif");
                 return RedirectToAction ("Index");
             }
@@ -100,20 +119,34 @@ namespace Dojodachi.Controllers
         [HttpPost("Sleep")]
         public IActionResult Sleep()
         {
+            Random rand = new Random();
             int? HappinessCount = HttpContext.Session.GetInt32("Happiness");
             int NewHappinessCount = HappinessCount ?? default(int);
             int? FullnessCount = HttpContext.Session.GetInt32("Fullness");
             int NewFullnessCount = FullnessCount ?? default(int);
             int? EnergyCount = HttpContext.Session.GetInt32("Energy");
             int NewEnergyCount = EnergyCount ?? default(int);
+            int AmountImage = rand.Next(1,3);
             {
                 HttpContext.Session.SetInt32("Happiness", (int)HappinessCount - 5);
                 HttpContext.Session.SetInt32("Fullness", (int)FullnessCount - 5);
                 HttpContext.Session.SetInt32("Energy", (int)EnergyCount + 15);
+                
+                int Image = AmountImage;
+                switch (0 + AmountImage)
+                {
+                case 1:
                 HttpContext.Session.SetString("Image","sleepy.gif");
-                HttpContext.Session.SetString("Image2","sleepingRaccoon.jpg");
-                HttpContext.Session.SetString("Image3","sleepBasketRaccoon.jpg");
-                HttpContext.Session.SetString("Message","Dashi Raccoon slept soundly and has 15 more Energy!");
+                break;
+                case 2:
+                HttpContext.Session.SetString("Image","sleepingRaccoon.jpg");
+                break;
+                case 3:
+                HttpContext.Session.SetString("Image","sleepBasketRaccoon.jpg");
+                break;
+                }
+
+                HttpContext.Session.SetString("Message","Dashi Raccoon slept soundly and now has 15 more Energy!");
                 
                 return RedirectToAction("Index");
             }
@@ -131,13 +164,25 @@ namespace Dojodachi.Controllers
             int? MealsCount = HttpContext.Session.GetInt32("Meals");
             int NewMealsCount = MealsCount ?? default(int);
             int AmountFood = rand.Next(1,3);
+            int AmountImage = rand.Next(1, 4);
 
             HttpContext.Session.SetInt32("Energy", NewEnergyCount -5);
             HttpContext.Session.SetInt32("Meals", NewMealsCount + AmountFood);
             HttpContext.Session.SetString("Message", $"Dashi Raccoon has finished working, {AmountFood} was added to the meal supply.");
-            HttpContext.Session.SetString("Image", "offtowortenor.gif");
-            HttpContext.Session.SetString("Image2", "answeringphone.jpg");
-            HttpContext.Session.SetString("Image3", "sweeping.gif");
+            
+            int Image = AmountImage;
+                switch (1 + AmountImage)
+                {
+                case 2:
+                HttpContext.Session.SetString("Image","offtowortenor.gif");
+                break;
+                case 3:
+                HttpContext.Session.SetString("Image","answeringphone.jpg");
+                break;
+                case 4:
+                HttpContext.Session.SetString("Image","sweeping.gif");
+                break;
+                }
             return RedirectToAction("Index");
         }
 
@@ -155,17 +200,29 @@ namespace Dojodachi.Controllers
             int? HappinessCount = HttpContext.Session.GetInt32("Happiness");
             int NewHappinessCount = HappinessCount ?? default(int);
             int AmountHappiness = rand.Next(5, 10);
+            int AmountImage = rand.Next(1,4);
 
             if (EnergyCount > 5)
             {
                 HttpContext.Session.SetInt32("Energy", NewEnergyCount - 5);
                 HttpContext.Session.SetInt32("Happiness", NewHappinessCount + AmountHappiness);
                 HttpContext.Session.SetString("Message", $"Dashi Raccoon has finished playing. Happiness increased by {AmountHappiness}!");
+                int Image = AmountImage;
+                switch (0 + AmountImage)
+                {
+                case 1:
                 HttpContext.Session.SetString("Image","bicycle.gif");
-                HttpContext.Session.SetString("Image2","pianoRaccoon.gif");
-                HttpContext.Session.SetString("Image3","mathyRaccoon.gif");
-                HttpContext.Session.SetString("Image4","waterRaccoon.gif");
-                HttpContext.Session.SetString("Image4","waterRaccoon.gif");
+                break;
+                case 2:
+                HttpContext.Session.SetString("Image","waterRaccoon.gif");
+                break;
+                case 3:
+                HttpContext.Session.SetString("Image","pianoRaccoon.gif");
+                break;
+                case 4:
+                HttpContext.Session.SetString("Image","mathyRaccoon.gif");
+                break;
+                }
                 // ViewBag.Energy = HttpContext.Session.GetInt32("Energy");
                 // ViewBag.Happiness = HttpContext.Session.GetInt32("Happiness");
                 return RedirectToAction("Index");
@@ -186,6 +243,41 @@ namespace Dojodachi.Controllers
                 HttpContext.Session.Clear();
                 HttpContext.Session.SetString("Image","raccoon.gif");
                 return RedirectToAction("Index");
-            }    
+            }  
+
+        [HttpGet("TimeDisplay")]
+        public IActionResult TimeDisplay()
+        {
+            ViewBag.Date=DateTime.Now.ToString("MMM dd,yyyy");
+            ViewBag.Time=DateTime.Now.ToString("h:mm tt");
+            return View("TimeDisplay");
+        }
+
+
+        [HttpGet("TimeTravel")]
+        public IActionResult TimeTravel()
+        {
+            return View("TimeTravel");
+        }
+
+        [HttpGet("Cat")]
+        public IActionResult Cat()
+        {
+            return View("Cat");
+        }
+        [HttpGet("Pup")]
+        public IActionResult Pup()
+        {
+            return View("Pup");
+        }
+
+        [HttpGet("privacy")]
+        public IActionResult Privacy()
+        {
+            return View ("Privacy");
+        }
+
     }
-}
+
+}    
+

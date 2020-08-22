@@ -43,98 +43,121 @@ a.navbar-brand {
   
   body {
     /* Margin bottom by footer height */
-    margin-bottom: 60px;
+    margin-bottom: 100px;
     background-color:#e9ecef;
   }
 
   .footer {
     position: absolute;
-    bottom: 0;
-    width: 100%;
+    bottom: 5;
+    width: 50%;
     white-space: nowrap;
     /* Set the fixed height of the footer here */
-    height: 60px;
+    height: 100px;
     line-height: 60px; /* Vertically center the text there */
   }
   .button-wobble1 {
-    border-radius: 650px 850px 150px 650px /
-                   350px 150px 950px 350px;
+    border-radius:650px 850px 150px 650px /
+                  350px 150px 950px 350px;
     animation: wobble 1s ease-in-out alternate infinite;
   }
   
   @keyframes wobble {
     50% {
-      border-radius: 750px 550px 350px 750px /
-                     350px 750px 550px 450px;
+      border-radius:750px 550px 350px 750px /
+                    350px 750px 550px 450px;
     }
     100% {
-      border-radius: 750px 250px 750px 250px /
-                     250px 750px 250px 750px;
+      border-radius:750px 250px 750px 250px /
+                    250px 750px 250px 750px;
     }
   }
   .button-wobble2 {
-    border-radius: 650px 850px 150px 650px /
-                   350px 150px 950px 350px;
+    border-radius:650px 850px 150px 650px /
+                  350px 150px 950px 350px;
     animation: wobble 6s ease-in-out alternate infinite;
   }
   
   @keyframes wobble {
     50% {
-      border-radius: 750px 550px 350px 750px /
-                     350px 750px 550px 450px;
+      border-radius:750px 550px 350px 750px /
+                    350px 750px 550px 450px;
     }
     100% {
-      border-radius: 750px 250px 750px 250px /
-                     250px 750px 250px 750px;
+      border-radius:750px 250px 750px 250px /
+                    250px 750px 250px 750px;
     }
   }
   .button-wobble3 {
-    border-radius: 850px 450px 250px 150px /
-                   450px 250px 850px 450px;
-    animation: wobble 1s ease-in-out alternate infinite;
+    border-radius:850px 450px 250px 150px /
+                  450px 250px 850px 450px;
+    animation: wobble 3s ease-in-out alternate infinite;
   }
   
   @keyframes wobble {
     50% {
-      border-radius: 750px 550px 350px 750px /
-                     350px 750px 550px 450px;
+      border-radius:750px 550px 350px 750px /
+                    350px 750px 550px 450px;
     }
     100% {
-      border-radius: 750px 250px 750px 250px /
-                     250px 750px 250px 750px;
+      border-radius:750px 250px 750px 250px /
+                    250px 750px 250px 750px;
     }
   }
   
   .button-wobble4 {
-    border-radius: 650px 850px 150px 650px /
-                   350px 150px 950px 350px;
-    animation: wobble 1s ease-in-out alternate infinite;
+    border-radius:650px 850px 150px 650px /
+                  350px 150px 950px 350px;
+    animation: wobble 8s ease-in-out alternate infinite;
   }
   
   @keyframes wobble {
     50% {
-      border-radius: 750px 550px 350px 750px /
-                     350px 750px 550px 450px;
+      border-radius:750px 550px 350px 750px /
+                    350px 750px 550px 450px;
     }
     100% {
-      border-radius: 750px 250px 750px 250px /
-                     250px 750px 250px 750px;
+      border-radius:750px 250px 750px 250px /
+                    250px 750px 250px 750px;
     }
   }
 
   .slideText {
     animation-duration: 3s;
     animation-name: slidein;
-  
   }
   @keyframes slidein {
     from {
-       margin-left:100%;
-       width:300%
+      margin-left:100%;
+      width:300%
     }
     to {
-       margin-left:0%;
-       width:100%;
+      margin-left:0%;
+      width:100%;
     }
   }
   
+
+
+.slide-up {
+  height:200px;
+  overflow:hidden;
+}
+.slide-up img {
+  animation: 40s slide-up;
+  margin-top:0%;
+}
+
+@keyframes slide-up {
+  from {
+    margin-top: 100%;
+    height: 300%; 
+  }
+
+  to {
+    margin-top: 0%;
+    height: 100%;
+  }
+}
+
+
