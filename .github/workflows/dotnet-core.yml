@@ -1,10 +1,6 @@
 name: Raccoon
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+on: [push]
 
 jobs:
   build:
@@ -17,17 +13,16 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.301
-    - name:.NET Core CLI
-      uses:baruchiro/github-actions@0.0.1
-      run: dotnet build --configuration Release --no-restore
-    - name: Publish Raccoon webassembly using dotnet
-      run: dotnet publish --configuration Release --publishoutput
-    - name: Deploy generated Raccoon webassembly to Netlify
+    - name: Build with dotnet
+      run: dotnet build --configuration Release 
+    - name: dotnet publish
+      run: dotnet publish --c Release -o raccoon/webassembly
+    - name: dotnet deploy
       uses: netlify/actions/cli@master
-      env: 
-        ACCESS_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        ACCESS_TOKEN: ${{ secrets.NETLIFY_SITE_ID }}
-        with: 
-        args:deploy--dir=publishoutput/wwwroot --prod
-         
-         secrets:`["NETLIFY_AUTH_TOKEN","NETLIFY_SITE_ID"]`
+      with: 
+        app-name: raccoon-dachi.netlify.app
+        AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        secrets: 
+          Netlify Auth Token:`[NETLIFY_AUTH_TOKEN]`
+          Netlify Site Id:`[NETLIFY_SITE_ID]`
