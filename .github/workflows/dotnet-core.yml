@@ -16,7 +16,7 @@ jobs:
     - name: Build with dotnet
       run: dotnet build --configuration Release 
     - name: dotnet publish
-      run: dotnet publish --c Release -o raccoon/webassembly
+      run: dotnet publish --c Release
     - name: dotnet deploy
       uses: netlify/actions/cli@master
       with: 
