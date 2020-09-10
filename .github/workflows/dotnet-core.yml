@@ -17,9 +17,8 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.301
-    - name: Install dependencies
-      run: dotnet restore
-    - name: Build with dotnet
+    - name:.NET Core CLI
+      uses:baruchiro/github-actions@0.0.1
       run: dotnet build --configuration Release --no-restore
     - name: Publish Raccoon webassembly using dotnet
       run: dotnet publish --configuration Release --publishoutput
